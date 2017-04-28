@@ -1,0 +1,12 @@
+{
+  "html": {
+    "abbreviations": {
+
+    },
+    "snippets": {
+      "gdsradio": "<label for='$1' class='block-label'>\n\t<input type='radio' name='$1' value='$2' id='$3' {{ checked('$1','$2') }}>\n\tYes\n</label>",
+      "gdsrow": "<div class='grid-row'></div>",
+      "test": "<div class='grid-row'></div>",
+    }
+  }
+}
