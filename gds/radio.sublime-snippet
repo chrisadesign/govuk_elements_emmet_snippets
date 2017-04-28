@@ -1,0 +1,9 @@
+<snippet>
+  <content><![CDATA[
+<label for="$1" class="block-label">
+  <input type="radio" name="$1" value="$2" id="$3" {{ checked("$1","$2") }}>
+  Yes
+</label>
+]]></content>
+  <tabTrigger>gdsradio</tabTrigger>
+</snippet>
