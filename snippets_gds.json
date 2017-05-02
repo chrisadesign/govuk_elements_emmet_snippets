@@ -3,7 +3,7 @@
     "abbreviations": {
       "radio:abb": "div.form-group>fieldset>(label.block-label[for=dataValue]>input[type=checkbox name=dataValue value=\"\"]{Label $})",
       "bullets": "ul.list.list-bullet",
-      "numbers": "ul.list.list-number",
+      "numbers": "ol.list.list-number",
       "grid": ".grid-row",
       "colfull": ".column-full",
       "colhalf": ".column-half",
