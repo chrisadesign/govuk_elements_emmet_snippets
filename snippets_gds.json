@@ -1,12 +1,52 @@
 {
   "html": {
     "abbreviations": {
-
+      "radio:abb": "div.form-group>fieldset>(label.block-label[for=dataValue]>input[type=checkbox name=dataValue value=\"\"]{Label $})",
+      "bullets": "ul.list.list-bullet",
+      "numbers": "ul.list.list-number",
+      "grid": ".grid-row",
+      "colfull": ".column-full",
+      "colhalf": ".column-half",
+      "colthird": ".column-one-third",
+      "col1third": ".column-one-third",
+      "col2third": ".column-two-thirds",
+      "col2thirds": ".column-two-thirds",
+      "colquarter": ".column-one-quarter",
+      "col1quarter": ".column-one-quarter",
+      "col3quarter": ".column-three-quarters",
+      "col3quarters": ".column-three-quarters",
     },
+
     "snippets": {
-      "gdsradio": "<label for='$1' class='block-label'>\n\t<input type='radio' name='$1' value='$2' id='$3' {{ checked('$1','$2') }}>\n\tYes\n</label>",
-      "gdsrow": "<div class='grid-row'></div>",
-      "test": "<div class='grid-row'></div>",
+
+      "form": "<form action=\"$1\" method=\"post\" class=\"form\">\n\n\t|\n\n</form>",
+
+      "input": "<div class=\"form-group\">\n\t<label class=\"form-label\" for=\"$1\">$2</label>\n\t<input class=\"form-control\" id=\"$1\" name=\"$3\" value=\"{{$3}}\" type=\"text\" autocomplete=\"off\">\n</div>",
+      "inputdate": "<div class=\"form-group\">\n\t<fieldset>\n\n\t\t<legend>\n\t\t\t<span class=\"form-label-bold\">\n\t\t\t\t$1\n\t\t\t</span>\n\t\t\t<span class=\"form-hint\" id=\"dob-hint\">For example, 31 3 1980</span>\n\t\t</legend>\n\n\t\t<div class=\"form-date\">\n\t\t\t<div class=\"form-group form-group-day\">\n\t\t\t\t<label class=\"form-label\" for=\"$2\">Day</label>\n\t\t\t\t<input class=\"form-control\" id=\"$2\" name=\"$3\" value=\"{{$3}}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" max=\"31\" autocomplete=\"off\">\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group form-group-month\">\n\t\t\t\t<label class=\"form-label\" for=\"$4\">Month</label>\n\t\t\t\t<input class=\"form-control\" id=\"$4\" name=\"$5\" value=\"{{$5}}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" max=\"12\" autocomplete=\"off\">\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group form-group-year\">\n\t\t\t\t<label class=\"form-label\" for=\"$6\">Year</label>\n\t\t\t\t<input class=\"form-control\" id=\"$6\" name=\"$7\" value=\"{{$7}}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" autocomplete=\"off\">\n\t\t\t</div>\n\t\t</div>\n\n\t</fieldset>\n</div>",
+
+      "radio": "<div class=\"multiple-choice\">\n\t<input id=\"$1\" type=\"radio\" name=\"$2\" value=\"$3\" {{ checked('$2','$3') }}>\n\t<label for=\"$1\">$3</label>\n</div>",
+      "radioconditional": "<div class=\"multiple-choice\" data-target=\"${1:target id}\">\n\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t<label for=\"$2\">$4</label>\n</div>\n<div class=\"panel panel-border-narrow js-hidden\" id=\"${1:target id}\">\n\t|\n</div>",
+      "radioinline": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"radio\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\t</fieldset>\n</div>",
+      "radiostacked": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"radio\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\n\t\t<p class=\"form-block\">or</p>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$7\" type=\"radio\" name=\"$3\" value=\"$8\" {{ checked('$3','$8') }}>\n\t\t\t<label for=\"$7\">$8</label>\n\t\t</div>\n\t</fieldset>\n</div>",
+
+      "checkbox": "<div class=\"multiple-choice\">\n\t<input id=\"$1\" type=\"checkbox\" name=\"$2\" value=\"$3\" {{ checked('$2','$3') }}>\n\t<label for=\"$1\">$3</label>\n</div>",
+      "checkboxconditional": "<div class=\"multiple-choice\" data-target=\"${1:target id}\">\n\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t<label for=\"$2\">$4</label>\n</div>\n<div class=\"panel panel-border-narrow js-hidden\" id=\"${1:target id}\">\n\t|\n</div>",
+      "checkboxinline": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"checkbox\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\t</fieldset>\n</div>",
+      "checkboxstacked": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"checkbox\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\n\t\t<p class=\"form-block\">or</p>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$7\" type=\"checkbox\" name=\"$3\" value=\"$8\" {{ checked('$3','$8') }}>\n\t\t\t<label for=\"$7\">$8</label>\n\t\t</div>\n\t</fieldset>\n</div>",
+
+      "headingxl": "<$1 class=\"heading-xlarge\">$2</$1>",
+      "headingl": "<$1 class=\"heading-large\">$2</$1>",
+      "headingm": "<$1 class=\"heading-medium\">$2</$1>",
+      "headings": "<$1 class=\"heading-small\">$2</$1>",
+
+      "legal": "<div class=\"notice\">\n\t<i class=\"icon icon-important\">\n\t\t<span class=\"visually-hidden\">Warning</span>\n\t</i>\n\t<strong class=\"bold-small\">\n\t\t|\n\t</strong>\n</div>",
+      "panel": "<div class=\"panel panel-border-${1:(wide or narrow)}\">\n\t|\n</div>",
+      "progressive": "<details>\n\t<summary><span class=\"summary\">${1:Visible text/title}</span></summary>\n\t<div class=\"panel panel-border-narrow\">\n\t${2:Hidden text}\n\t</div>\n</details>",
+
+      "data": "<div class=\"data\">\n\t<span class=\"data-item bold-${1:(xxlarge or xlarge)}\">${2:Value}</span>\n\t<span class=\"data-item bold-xsmall\">${3:Text}</span>\n</div>",
+
+      "button": "<a class=\"button\" href=\"$1\" role=\"button\">$2</a>",
+      "submit": "<div class=\"form-group\">\n\t<input type=\"submit\" class=\"button\" value=\"$1\">\n</div>",
     }
   }
 }
