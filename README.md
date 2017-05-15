@@ -46,5 +46,7 @@ So far it's just HTML snippets, these might grow to include more code form GDS, 
 * `progressive`: Expandable text with placeholder for link and message text.
 * `data`: Data visualisation with placeholder for value and text.
 
-
-
+### Sponsorship project specific
+* `page`: Defaut page setup with header area included
+* `devblock`: Content area for an alternative block of Content
+* `devnote`: Note for development
