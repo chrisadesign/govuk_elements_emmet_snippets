@@ -29,7 +29,7 @@
 
     "snippets": {
 
-      "devcontent": "{% if data['devcontent'] == 'true' %}\n\t|\n{% endif %}",
+      "devblock": "{% if data['devcontent'] == 'true' %}\n\t<span class=\"dev-note\">Display if $1</span>\n\n\t$2\n\n{% endif %}",
       "devnote": "{% if data['devcontent'] == 'true' %}\n\n\t<span class=\"dev-note\">|</span>\n\n{% endif %}",
 
       "page": "{% extends \"layout.html\" %}\n\n{% block page_title %}\n\t$1\n{% endblock %}\n\n{% block content %}\n\n<main id=\"content\" role=\"main\">\n\n\t{% include \"includes/phase_banner_alpha.html\" %}\n\n\t<div class=\"grid-row\">\n\t\t<div class=\"column-full\">\n\n\t\t\t<div class=\"breadcrumb\">\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"home\">Account home</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\n\t\t\t<div class=\"page-header\">\n\t\t\t\t<div class=\"grid-row\">\n\t\t\t\t\t<div class=\"column-two-thirds\">\n\t\t\t\t\t\t<h1 class=\"heading-large\">\n\t\t\t\t\t\t\t$1\n\t\t\t\t\t\t</h1>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\t</div>\n\n\t<div class=\"grid-row\">\n\t\t$2\n\t</div>\n\n</main>\n\n{% endblock %}",
