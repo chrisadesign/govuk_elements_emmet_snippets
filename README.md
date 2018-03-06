@@ -1,5 +1,5 @@
-# Emmet snippets
-A collection of Emmet snippets for GOV.UK [elements](http://govuk-elements.herokuapp.com/).
+# GOV.UK Elements emmet snippets
+A collection of Emmet snippets for [GOV.UK elements](http://govuk-elements.herokuapp.com/).
 
 > So far it's just HTML snippets, these might grow to include more code form GDS, any other useful HTML, and CSS snippets in the future.
 
