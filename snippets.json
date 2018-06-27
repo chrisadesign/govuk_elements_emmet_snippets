@@ -11,126 +11,67 @@
     "filters": "html",
     "profile": "html",
     "abbreviations": {
-      "radio:abb": "div.form-group>fieldset>(label.block-label[for=dataValue]>input[type=checkbox name=dataValue value=\"\"]{Label $})",
-      "bullets": "ul.list.list-bullet",
-      "numbers": "ol.list.list-number",
-      "grid": ".grid-row",
-      "colfull": ".column-full",
-      "colhalf": ".column-half",
-      "colthird": ".column-one-third",
-      "col1third": ".column-one-third",
-      "col2third": ".column-two-thirds",
-      "col2thirds": ".column-two-thirds",
-      "colquarter": ".column-one-quarter",
-      "col1quarter": ".column-one-quarter",
-      "col3quarter": ".column-three-quarters",
-      "col3quarters": ".column-three-quarters"
+      "lead": "p.govuk-body-l",
+      "small": "p.govuk-body-s",
+      "a": "a.govuk-link",
+
+      "list": "ul.govuk-list>li*3",
+      "bullets": "ul.govuk-list.govuk-list--bullet>li*3",
+      "numbers": "ol.govuk-list.govuk-list--number>li*3",
+
+
+      "grid": ".govuk-grid-row",
+      "colfull": ".govuk-grid-column-full",
+      "colhalf": ".govuk-grid-column-one-half",
+      "colthird": ".govuk-grid-column-one-third",
+      "col1third": ".govuk-grid-column-one-third",
+      "col2third": ".govuk-grid-column-two-thirds",
+      "col2thirds": ".govuk-grid-column-two-thirds",
+      "colquarter": ".govuk-grid-column-one-quarter",
+      "col1quarter": ".govuk-grid-column-one-quarter",
+      "col3quarter": ".govuk-grid-column-three-quarters",
+      "col3quarters": ".govuk-grid-column-three-quarters"
     },
     "snippets": {
 
-      "page": "{% extends \"layout.html\" %}\n\n{% block page_title %}\n\t$1\n{% endblock %}\n\n{% block content %}\n<main id=\"content\" role=\"main\">\n\n\t{% include \"includes/phase_banner_alpha.html\" %}\n\n\t<div class=\"grid-row\">\n\t\t<div class=\"column-two-thirds\">\n\n\t\t\t$2\n\n\t\t</div>\n\t</div>\n\n</main>\n{% endblock %}",
+      "backlink": "{{ govukBackLink({\n\ttext: 'Back',\n\thref: '${1:#0}',\n\tclasses: '$2'\n}) }}",
 
+      "breadcrumb": "{{ govukBreadcrumbs({\n\titems: [\n\t\t{\n\t\t\ttext:'Home',\n\t\thref: '/'\n\t},\n\t\t{\n\t\t\ttext:'${1:Section name}',\n\t\thref: '${2:#0}'\n\t},\n\t\t{\n\t\t\ttext:'${3:Current page}'\n\t}\n\t]\n}) }}",
 
+      "button": "{{ govukButton({\n\ttext: '${1:Save and continue}',\n\thref: '${2:#0}',\n\tclasses: '$3'\n}) }}",
+      "start": "{{ govukButton({\n\ttext: '${1:Start}',\n\thref: \"${2:#0}\",\n\tclasses: \"govuk-button--start $3\"\n}) }}",
+      "submit": "{{ govukButton({\n\ttext: \"${1:Save and continue}\",\n\tclasses: \"$2\"\n}) }}",
 
+      "checkboxes": "{{ govukCheckboxes({\n\tidPrefix: '$1',\n\tname: '$2',\n\tfieldset: {\n\t\tlegend: {\n\t\t\ttext: '${3:Question text}',\n\t\t\tisPageHeading: ${4:true},\n\t\t\tclasses: '${5:govuk-fieldset__legend--xl}'\n\t\t}\n\t},\n\thint: {\n\t\ttext: '${6:Hint text}'\n\t},\n\titems: [\n\t\t{\n\t\t\tvalue: '$7',\n\t\t\ttext: '$8',\n\t\t\tconditional: {\n\t\t\t\thtml: ${9:Conditional name}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\tvalue: '$10',\n\t\t\ttext: '$11',\n\t\t\tconditional: {\n\t\t\t\thtml: ${12:Conditional name}\n\t\t\t}\n\t\t}\n\t]\n}) }}",
 
-      "headingxl": "<$1 class=\"heading-xlarge\">$2</$1>",
-      "headingl": "<$1 class=\"heading-large\">$2</$1>",
-      "headingm": "<$1 class=\"heading-medium\">$2</$1>",
-      "headings": "<$1 class=\"heading-small\">$2</$1>",
-      "lead": "<p class=\"lede\">$1</p>",
+      "conditional": "{% set textHtml %}\n\t$1\n{% endset -%}",
 
+      "date": "{{ govukDateInput({\n\tid: '${1:dob}',\n\tname: '${2:dob}',\n\tfieldset: {\n\t\tlegend: {\n\t\t\ttext: '${3:What is your date of birth?}',\n\t\t\tisPageHeading: ${4:true},\n\t\t\tclasses: '${5:govuk-fieldset__legend--xl}'\n\t\t}\n\t},\n\thint: {\n\t\ttext: '${6:For example, 31 3 1980}'\n\t},\n\titems: [\n\t\t{\n\t\t\tname: '${7:day}'\n\t\t},\n\t\t{\n\t\t\tname: '${8:month}'\n\t\t},\n\t\t{\n\t\t\tname: '${9:year}'\n\t\t}\n\t]\n}) }}",
 
+      "details": "{{ govukDetails({\n\tsummaryText: '${1:Help with nationality}',\n\ttext: '${2:We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.}'\n}) }}",
 
+      "upload": "{{ govukFileUpload({\n\tid: '${1:file-upload-1}',\n\tsname: '${2:file-upload-1}',\n\tlabel: {\n\t\ttext: '${3:Upload a file}'\n\t}\n}) }}",
 
+      "inset": "{% from 'inset-text/macro.njk' import govukInsetText %}\n\n{{ govukInsetText({\n\t${1:text or html}: '$2',\n\tclasses: '$3'\n}) }}",
 
-      "warning": "<div class=\"notice\">\n\t<i class=\"icon icon-important\">\n\t\t<span class=\"visually-hidden\">Warning</span>\n\t</i>\n\t<strong class=\"bold-small\">\n\t\t|\n\t</strong>\n</div>",
+      "panel": "{{ govukPanel({\n\ttitleText: '${1:Application complete}',\n\ttext: '${2:Your reference number: HDJ2123F}',\n\tclasses: '$3'\n}) }}",
 
+      "radios": "{{ govukRadios({\n\tclasses: '${1:govuk-radios--inline}',\n\tidPrefix: '$2',\n\tname: '$3',\n\tfieldset: {\n\t\ttext: '$4',\n\t\tisPageHeading: ${5:true},\n\t\tclasses: '${6:govuk-fieldset__legend--xl}'\n\t},\n\thint: {\n\t\ttext: '$7'\n\t},\n\titems: [\n\t\t{\n\t\t\tvalue: '$8',\n\t\t\ttext: '$9'\n\t\t},\n\t\t{\n\t\t\tvalue: '$10',\n\t\t\ttext: '$11'\n\t\t}\n\t]\n}) }}",
 
+      "select": "{{ govukSelect({\n\tclasses: '$1',\n\tid: '$2',\n\tname: '$3',\n\tlabel: {\n\t\thtml: '$4',\n\t\tisPageHeading: ${5:true}\n\t},\n\thint: {\n\t\ttext: '$6'\n\t},\n\titems: [\n\t\t{\n\t\t\tvalue: '$7',\n\t\t\ttext: '$8'\n\t\t},\n\t\t{\n\t\t\tvalue: '$9',\n\t\t\ttext: '$10'\n\t\t}\n\t]\n}) }}",
 
+      "table": "{{ govukTable({\n\tclasses: '$1',\n\tcaption: '$2',\n\tfirstCellIsHeader: '${3:true}',\n\thead: [\n\t\t{\n\t\t\ttext: '$4'\n\t\t},\n\t\t{\n\t\t\ttext: '$5',\n\t\t\t${6:format: 'numeric'}\n\t\t},\n\t\t{\n\t\t\ttext: '$7',\n\t\t\t${8:format: 'numeric'}\n\t\t}\n\t],\n\trows: [\n\t\t[\n\t\t\t{\n\t\t\t\ttext: '$9'\n\t\t\t},\n\t\t\t{\n\t\t\t\ttext: '$10',\n\t\t\t\t${11:format: 'numeric'}\n\t\t\t},\n\t\t\t{\n\t\t\t\ttext: '$12',\n\t\t\t\t${13:format: 'numeric'}\n\t\t\t}\n\t\t]\n\t]\n}) }}",
 
+      "tabs": "{% from 'tabs/macro.njk' import govukTabs %}\n\n{% set ${1:Tab 1 HTML name} %}\n\tTab content\n{% endset -%}\n\n{% set ${2:Tab 2 HTML name} %}\n\tTab content\n{% endset -%}\n\n{{ govukTabs({\n\tclasses: '$3',\n\titems: [\n\t\t{\n\t\t\tlabel: '$4',\n\t\t\tid: '$5',\n\t\t\tpanel: {\n\t\t\t\thtml: $1\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\tlabel: '$6',\n\t\t\tid: '$7',\n\t\t\tpanel: {\n\t\t\t\thtml: $2\n\t\t\t}\n\t\t}\n\t]\n}) }}",
 
-      "panel": "<div class=\"panel panel-border-${1:(wide or narrow)}\">\n\t|\n</div>",
+      "tag": "{{ govukTag({\n\ttext: '$1',\n\tclasses: '$2'\n}) }}",
 
+      "input": "{{ govukInput({\n\tlabel: {\n\t\ttext: '${1:Label text}',\n\t\tisPageHeading: ${2:true}\n\t},\n\thint: {\n\t\ttext: '${3:Hint text}'\n\t},\n\tid: '$4',\n\tname: '$5',\n\tclasses: '${6:govuk-input--width-10}'\n}) }}",
 
+      "textarea": "{{ govukTextarea({\n\tclasses: '$1',\n\tname: '$2',\n\tid: '$3',\n\trows: '$4',\n\tlabel: {\n\t\ttext: '$5'\n\t},\n\thint: {\n\t\ttext: '$6'\n\t}\n}) }}",
 
+      "warning": "{{ govukWarningText({\n\tclasses: '$1',\n\ttext: '$2',\n\ticonFallbackText: '${3:Warning}'\n}) }}"
 
-
-      "hidden": "<details>\n\t<summary><span class=\"summary\">${1:Visible text/title}</span></summary>\n\t<div class=\"panel panel-border-narrow\">\n\t${2:Hidden text}\n\t</div>\n</details>",
-
-
-
-
-
-      "data": "<div class=\"data\">\n\t<span class=\"data-item bold-${1:(xxlarge or xlarge)}\">${2:Value}</span>\n\t<span class=\"data-item bold-xsmall\">${3:Text}</span>\n</div>",
-
-
-
-
-
-      "form": "<form action=\"$1\" method=\"get\" class=\"form\">\n\n\t|\n\n</form>",
-
-
-
-
-
-      "hint": "<span class=\"form-hint\">|</span>",
-
-
-
-
-
-      "button": "<a class=\"button\" href=\"$1\" role=\"button\">$2</a>",
-      "start": "<a class=\"button button-start\" href=\"$1\" role=\"button\">$2</a>",
-      "submit": "<div class=\"form-group\">\n\t<input type=\"submit\" class=\"button\" value=\"$1\">\n</div>",
-
-
-
-
-
-      "input": "<div class=\"form-group\">\n\t<label class=\"form-label\" for=\"$1\">$2</label>\n\t<input class=\"form-control\" id=\"$1\" name=\"$3\" value=\"{{ data['$3'] }}\" type=\"text\" autocomplete=\"off\">\n</div>",
-
-      "inputdate": "<div class=\"form-group\">\n\t<fieldset>\n\n\t\t<legend>\n\t\t\t<span class=\"form-label-bold\">\n\t\t\t\t$1\n\t\t\t</span>\n\t\t\t<span class=\"form-hint\">For example, 31 3 1980</span>\n\t\t</legend>\n\n\t\t<div class=\"form-date\">\n\t\t\t<div class=\"form-group form-group-day\">\n\t\t\t\t<label class=\"form-label\" for=\"$2\">Day</label>\n\t\t\t\t<input class=\"form-control\" id=\"$2\" name=\"$3\" value=\"{{ data['$3'] }}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" max=\"31\" autocomplete=\"off\">\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group form-group-month\">\n\t\t\t\t<label class=\"form-label\" for=\"$4\">Month</label>\n\t\t\t\t<input class=\"form-control\" id=\"$4\" name=\"$5\" value=\"{{ data['$5'] }}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" max=\"12\" autocomplete=\"off\">\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group form-group-year\">\n\t\t\t\t<label class=\"form-label\" for=\"$6\">Year</label>\n\t\t\t\t<input class=\"form-control\" id=\"$6\" name=\"$7\" value=\"{{ data['$7'] }}\" type=\"number\" pattern=\"[0-9]*\" min=\"0\" autocomplete=\"off\">\n\t\t\t</div>\n\t\t</div>\n\n\t</fieldset>\n</div>",
-
-
-
-
-
-      "textarea": "<div class=\"form-group\">\n\t<label class=\"form-label\" for=\"$1\">$2</label>\n\t<textarea class=\"form-control form-control-3-4\" id=\"$1\" name=\"$3\" rows=\"5\" autocomplete=\"off\">{{ data['$3'] }}</textarea>\n</div>",
-
-
-
-
-
-      "select": "<div class=\"form-group\">\n\t<label class=\"form-label\" for=\"$1\">$2</label>\n\t<select class=\"form-control\" id=\"$1\" name=\"$1\">\n\t\t<option>$3</option>\n\t</select>\n</div>",
-
-
-
-
-
-      "radio": "<div class=\"multiple-choice\">\n\t<input id=\"$1\" type=\"radio\" name=\"$2\" value=\"$3\" {{ checked('$2','$3') }}>\n\t<label for=\"$1\">$3</label>\n</div>",
-
-      "radioconditional": "<div class=\"multiple-choice\" data-target=\"${1:target id}\">\n\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t<label for=\"$2\">$4</label>\n</div>\n<div class=\"panel panel-border-narrow js-hidden\" id=\"${1:target id}\">\n\t|\n</div>",
-      "radioinline": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"radio\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\t</fieldset>\n</div>",
-
-      "radiostacked": "<div class=\"form-group\">\n\t<fieldset>\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"radio\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"radio\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\n\t\t<p class=\"form-block\">or</p>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$7\" type=\"radio\" name=\"$3\" value=\"$8\" {{ checked('$3','$8') }}>\n\t\t\t<label for=\"$7\">$8</label>\n\t\t</div>\n\t</fieldset>\n</div>",
-
-
-
-
-
-      "checkbox": "<div class=\"multiple-choice\">\n\t<input id=\"$1\" type=\"checkbox\" name=\"$2\" value=\"$3\" {{ checked('$2','$3') }}>\n\t<label for=\"$1\">$3</label>\n</div>",
-
-      "checkboxconditional": "<div class=\"multiple-choice\" data-target=\"${1:target id}\">\n\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t<label for=\"$2\">$4</label>\n</div>\n<div class=\"panel panel-border-narrow js-hidden\" id=\"${1:target id}\">\n\t|\n</div>",
-
-      "checkboxinline": "<div class=\"form-group\">\n\t<fieldset class=\"inline\">\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"checkbox\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\t</fieldset>\n</div>",
-
-      "checkboxstacked": "<div class=\"form-group\">\n\t<fieldset>\n\t\t<legend class=\"visually-hidden\">$1</legend>\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$2\" type=\"checkbox\" name=\"$3\" value=\"$4\" {{ checked('$3','$4') }}>\n\t\t\t<label for=\"$2\">$4</label>\n\t\t</div>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$5\" type=\"checkbox\" name=\"$3\" value=\"$6\" {{ checked('$3','$6') }}>\n\t\t\t<label for=\"$5\">$6</label>\n\t\t</div>\n\n\t\t<p class=\"form-block\">or</p>\n\n\t\t<div class=\"multiple-choice\">\n\t\t\t<input id=\"$7\" type=\"checkbox\" name=\"$3\" value=\"$8\" {{ checked('$3','$8') }}>\n\t\t\t<label for=\"$7\">$8</label>\n\t\t</div>\n\t</fieldset>\n</div>",
-
-
-
-
-
-      "aside": "<aside class=\"govuk-related-items\" role=\"complementary\">\n\t<h2 class=\"heading-medium\" id=\"subsection-title\">$1</h2>\n\t<nav role=\"navigation\" aria-labelledby=\"subsection-title\">\n\t\t<ul class=\"font-xsmall\">\n\t\t\t<li><a href=\"$2\">$3</a></li>\n\t\t</ul>\n\t</nav>\n</aside>"
     }
   }
 }
