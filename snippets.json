@@ -39,6 +39,8 @@
       "hm": "<$1 class='govuk-heading-m'>\n\t$2\n</$1>",
       "hs": "<$1 class='govuk-heading-s'>\n\t$2\n</$1>",
 
+      "form": "<form action='$1' method='${2:post}' class='form' autocomplete='off'>\n\n\t$3\n\n</form>",
+
       "backlink": "{{ govukBackLink({\n\ttext: 'Back',\n\thref: '${1:#0}',\n\tclasses: '$2'\n}) }}",
 
       "breadcrumb": "{{ govukBreadcrumbs({\n\titems: [\n\t\t{\n\t\t\ttext:'Home',\n\t\thref: '/'\n\t},\n\t\t{\n\t\t\ttext:'${1:Section name}',\n\t\thref: '${2:#0}'\n\t},\n\t\t{\n\t\t\ttext:'${3:Current page}'\n\t}\n\t]\n}) }}",
