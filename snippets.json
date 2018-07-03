@@ -38,7 +38,7 @@
       "hl": "<$1 class='govuk-heading-l'>\n\t$2\n</$1>",
       "hm": "<$1 class='govuk-heading-m'>\n\t$2\n</$1>",
       "hs": "<$1 class='govuk-heading-s'>\n\t$2\n</$1>",
-      "caption": "<span class'govuk-caption-${1:xl, l, m, or s}'>$2</span> ",
+      "caption": "<span class='govuk-caption-${1:xl, l, m, or s}'>$2</span> ",
 
       "form": "<form action='$1' method='${2:post}' class='form' autocomplete='off'>\n\n\t$3\n\n</form>",
 
@@ -49,6 +49,8 @@
       "button": "{{ govukButton({\n\ttext: '${1:Save and continue}',\n\thref: '${2:#0}',\n\tclasses: '$3'\n}) }}",
       "start": "{{ govukButton({\n\ttext: '${1:Start}',\n\thref: \"${2:#0}\",\n\tclasses: \"govuk-button--start $3\"\n}) }}",
       "submit": "{{ govukButton({\n\ttext: \"${1:Save and continue}\",\n\tclasses: \"$2\"\n}) }}",
+
+      "checkyouranswers": "<!-- only add a heading for a list if there is more than one list -->\n<h2 class='govuk-heading-m'>\n\t$1\n</h2>\n\n<!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->\n<!--   * `app-check-your-answers--short` for short questions -->\n<!--   * `app-check-your-answers__questions-long` for long questions -->\n<!--   * none for single group of q&a -->\n<dl class='app-check-your-answers app-check-your-answers--short'>\n\t<div class='app-check-your-answers__contents'>\n\t\t<dt class='app-check-your-answers__question'>\n\t\t\t$2\n\t\t</dt>\n\t\t<dd class='app-check-your-answers__answer'>\n\t\t\t$3\n\t\t</dd>\n\t\t<dd class='app-check-your-answers__change'>\n\t\t\t<a href='$4'>\n\t\t\t\tChange<span class='govuk-visually-hidden'> $2</span>\n\t\t\t</a>\n\t\t</dd>\n\t</div>\n\n\t<div class='app-check-your-answers__contents'>\n\t\t<dt class='app-check-your-answers__question'>\n\t\t\t$5\n\t\t</dt>\n\t\t<dd class='app-check-your-answers__answer'>\n\t\t\t$6\n\t\t</dd>\n\t\t<dd class='app-check-your-answers__change'>\n\t\t\t<a href='$7'>\n\t\t\t\tChange<span class='govuk-visually-hidden'> $5</span>\n\t\t\t</a>\n\t\t</dd>\n\t</div>\n</dl>",
 
       "checkboxes": "{{ govukCheckboxes({\n\tidPrefix: '$1',\n\tname: '$2',\n\tfieldset: {\n\t\tlegend: {\n\t\t\ttext: '${3:Question text}',\n\t\t\tisPageHeading: ${4:true},\n\t\t\tclasses: '${5:govuk-fieldset__legend--xl}'\n\t\t}\n\t},\n\thint: {\n\t\ttext: '${6:Hint text}'\n\t},\n\titems: [\n\t\t{\n\t\t\tvalue: '$7',\n\t\t\ttext: '$8',\n\t\t\tconditional: {\n\t\t\t\thtml: ${9:Conditional name}\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\tvalue: '$10',\n\t\t\ttext: '$11',\n\t\t\tconditional: {\n\t\t\t\thtml: ${12:Conditional name}\n\t\t\t}\n\t\t}\n\t]\n}) }}",
 
