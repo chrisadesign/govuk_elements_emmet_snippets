@@ -38,7 +38,7 @@
       "hl": "<$1 class='govuk-heading-l'>\n\t$2\n</$1>",
       "hm": "<$1 class='govuk-heading-m'>\n\t$2\n</$1>",
       "hs": "<$1 class='govuk-heading-s'>\n\t$2\n</$1>",
-      "caption": "<span class'govuk-caption-${1:xl, l, m, or s}'>$2</span> "
+      "caption": "<span class'govuk-caption-${1:xl, l, m, or s}'>$2</span> ",
 
       "form": "<form action='$1' method='${2:post}' class='form' autocomplete='off'>\n\n\t$3\n\n</form>",
 
